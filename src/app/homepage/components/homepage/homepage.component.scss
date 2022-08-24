@@ -1,0 +1,22 @@
+.content-container {
+  width: 100%;
+
+  .search-wrapper {
+    width: 80%;
+  }
+
+  h1 {
+    margin-top: 250px;
+  }
+
+  .mat-form-field-wrapper {
+    padding-bottom: 0 !important;
+  }
+
+  .result-container {
+    width: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+    height: calc(100vh - 200px);
+  }
+}

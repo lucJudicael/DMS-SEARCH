@@ -1,0 +1,45 @@
+<mat-selection-list [multiple]="false">
+  <mat-list-option>
+    <div mat-list-icon>
+      <ngx-avatar
+        [name]="singleRow.name"
+        [src]="singleRow.avatar_url"
+        [gravatarId]="singleRow.gravatar_id"
+        [round]="true"
+      >
+      </ngx-avatar>
+    </div>
+    <div mat-line class="left-spacer">
+      <div mat-line>
+        Username: <mat-card-subtitle>{{ singleRow.login }}</mat-card-subtitle>
+      </div>
+      <div mat-line>
+        location:
+        <mat-card-subtitle>{{
+          singleRow.location ? singleRow.location : "N/A"
+        }}</mat-card-subtitle>
+      </div>
+      <div mat-line>
+        Real Name: <mat-card-subtitle>{{ singleRow.name }}</mat-card-subtitle>
+      </div>
+      <div mat-line>
+        Email:
+        <mat-card-subtitle>{{
+          singleRow.email ? singleRow.email : "N/A"
+        }}</mat-card-subtitle>
+      </div>
+      <div mat-line>
+        Public Repos Count:
+        <mat-card-subtitle>{{ singleRow.public_repos }}</mat-card-subtitle>
+      </div>
+      <div mat-line>
+        Account Created At:
+        <mat-card-subtitle>{{ singleRow.created_at }}</mat-card-subtitle>
+      </div>
+      <div mat-line>
+        Last Updated:
+        <mat-card-subtitle>{{ singleRow.updated_at }}</mat-card-subtitle>
+      </div>
+    </div>
+  </mat-list-option>
+</mat-selection-list>

@@ -1,0 +1,23 @@
+<section
+  [ngClass]="{ 'search-light-theme': isLightTheme }"
+  class="mat-app-background app-container"
+>
+  <section fxLayout="row" fxLayoutAlign="space-between center">
+    <section fxLayoutAlign="center center">
+      <mat-icon aria-label="d2 search logo">travel_explore</mat-icon>
+      <span class="logo-name">DMS-SEARCH</span>
+    </section>
+    <button
+      mat-icon-button
+      color="warn"
+      aria-label="dark vs. light"
+      (click)="themeHandler()"
+    >
+      <mat-icon *ngIf="isLightTheme">light_mode</mat-icon>
+      <mat-icon *ngIf="!isLightTheme">dark_mode</mat-icon>
+    </button>
+  </section>
+  <section>
+    <router-outlet></router-outlet>
+  </section>
+</section>

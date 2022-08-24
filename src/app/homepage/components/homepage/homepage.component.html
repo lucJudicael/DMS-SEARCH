@@ -1,0 +1,63 @@
+<section
+  fxLayout="column"
+  fxLayoutAlign="center center"
+  class="content-container"
+>
+  <section class="search-wrapper">
+    <form
+      fxLayout="row"
+      fxLayoutGap="10px"
+      (submit)="performSearch(1)"
+      fxLayoutAlign="center center"
+    >
+      <mat-form-field appearance="outline" fxFlex="40">
+        <span matPrefix><mat-icon>search</mat-icon> &nbsp;</span>
+        <input
+          matInput
+          [formControl]="searchField"
+          [placeholder]="'Enter Email OR username to search'"
+        />
+      </mat-form-field>
+      <button
+        fxFlex="10"
+        type="submit"
+        color="primary"
+        mat-raised-button
+        [disabled]="searchField.invalid"
+      >
+        Search
+      </button>
+    </form>
+  </section>
+  <section class="result-container default-padding">
+    <div
+      *ngIf="
+        searchExecuted && !(searching$ | async) && totalResults > 0;
+        else noResults
+      "
+    >
+      <section *ngFor="let result of searchResult$ | async">
+        <app-result-row [singleRow]="result"></app-result-row>
+      </section>
+    </div>
+    <ng-template #noResults>
+      <p *ngIf="searchExecuted; else genericMessage">No results found</p>
+      <ng-template #genericMessage>
+        <h1 fxLayoutAlign="center center">Welcome to DMS-SEARCH</h1>
+        <p fxLayoutAlign="center center">
+          A GitHub Informational Search System. Used the field above to search for any user with a github account.
+          <br />
+          <strong>Note:</strong> You may find yourself in the list so, Do not panic :)
+        </p>
+      </ng-template>
+    </ng-template>
+  </section>
+</section>
+<mat-paginator
+  [length]="totalResults"
+  [pageSize]="itemPerPages"
+  (page)="onPaginationChanged($event)"
+  [pageSizeOptions]="[5, 10, 25, 100]"
+  aria-label="Select page"
+>
+</mat-paginator>
