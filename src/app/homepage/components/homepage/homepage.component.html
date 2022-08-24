@@ -44,7 +44,7 @@
       <p *ngIf="searchExecuted; else genericMessage">No results found</p>
       <ng-template #genericMessage>
         <h1 fxLayoutAlign="center center">Welcome to DMS-SEARCH</h1>
-        <p fxLayoutAlign="center center">
+        <p fxLayout="column" fxLayoutAlign="center center">
           A GitHub Informational Search System. Used the field above to search for any user with a github account.
           <br />
           <strong>Note:</strong> You may find yourself in the list so, Do not panic :)
